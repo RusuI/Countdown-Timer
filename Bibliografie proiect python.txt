@@ -1,0 +1,10 @@
+https://www.geeksforgeeks.org/python-grid-method-in-tkinter/
+https://www.geeksforgeeks.org/python-creating-a-button-in-tkinter/
+https://www.youtube.com/watch?v=djDcVWbEYoE
+https://www.tutorialspoint.com/python/tk_button.htm
+https://www.delftstack.com/howto/python-tkinter/how-to-change-tkinter-button-color/
+https://www.geeksforgeeks.org/how-to-play-sounds-in-python-with-tkinter/?fbclid=IwAR32RPM8_xwhmpq3X-ok-_GERfzKw6rfT7TFPZYuaAR7i-TIMDnNtMclDcQ
+https://realpython.com/intro-to-python-threading/
+https://www.youtube.com/watch?v=kfjdVgKE6xY
+https://www.youtube.com/watch?v=YXPyB4XeYLA
+https://www.geeksforgeeks.org/how-to-create-a-countdown-timer-using-python/

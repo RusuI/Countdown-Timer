@@ -6,33 +6,6 @@ import playsound as playsound
 from win10toast import ToastNotifier
 from playsound import playsound
 
-# def increase_hour():
-#     value = int(lbl_value_hour["text"])
-#     lbl_value_hour["text"] = f"{value + 1}"
-#
-#
-# def decrease_hour():
-#     value = int(lbl_value_hour["text"])
-#     lbl_value_hour["text"] = f"{value - 1}"
-#
-# def increase_minute():
-#         value = int(lbl_value_minute["text"])
-#         lbl_value_minute["text"] = f"{value + 1}"
-#
-# def decrease_minute():
-#         value = int(lbl_value_minute["text"])
-#         lbl_value_minute["text"] = f"{value - 1}"
-#
-#
-# def increase_second():
-#     value = int(lbl_value_second["text"])
-#     lbl_value_second["text"] = f"{value + 1}"
-#
-#
-# def decrease_second():
-#     value = int(lbl_value_second["text"])
-#     lbl_value_second["text"] = f"{value - 1}"
-
 
 window = tk.Tk()
 window.title('Countdown Timer')
@@ -56,7 +29,6 @@ second = tk.StringVar()
 second.set("00")
 
 # Take the input from the user
-
 
 hourEntry = tk.Entry(window, bg="green", bd=3, width=3, font=("Arial", 18, ""),
                      textvariable=hour)
@@ -82,7 +54,6 @@ def submit_reset():
 
 
 pressed = True
-
 
 def submit_stop():
     print("de cee")
@@ -166,37 +137,6 @@ def submit():
         thread = threading.Thread(target=thread_function)
         thread.start()
         running = True
-
-
-# lbl_value_hour = tk.Label(master=window, text="0")
-# lbl_value_hour.grid(row=1, column=0)
-#
-# btn_decrease = tk.Button(master=window, text="-", command=decrease_hour)
-# btn_decrease.grid(row=0, column=0, sticky="nsew")
-#
-# btn_increase = tk.Button(master=window, text="+", command=increase_hour)
-# btn_increase.grid(row=2, column=0, sticky="nsew")
-#
-#
-# lbl_value_minute = tk.Label(master=window, text="0")
-# lbl_value_minute.grid(row=1, column=1)
-#
-# btn_decrease = tk.Button(master=window, text="-", command=decrease_minute)
-# btn_decrease.grid(row=0, column=1, sticky="nsew")
-#
-# btn_increase = tk.Button(master=window, text="+", command=increase_minute)
-# btn_increase.grid(row=2, column=1, sticky="nsew")
-#
-#
-# lbl_value_second = tk.Label(master=window, text="0")
-# lbl_value_second.grid(row=1, column=2)
-#
-# btn_decrease = tk.Button(master=window, text="-", command=decrease_second)
-# btn_decrease.grid(row=0, column=2, sticky="nsew")
-#
-# btn_increase = tk.Button(master=window, text="+", command=increase_second)
-# btn_increase.grid(row=2, column=2, sticky="nsew")
-#
 
 
 # button widget

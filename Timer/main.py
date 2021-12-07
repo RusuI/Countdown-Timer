@@ -6,18 +6,18 @@ import playsound as playsound
 from win10toast import ToastNotifier
 from playsound import playsound
 
-
 window = tk.Tk()
+
 window.title('Countdown Timer')
+
 window.iconbitmap('C:/Users/Ioana/PycharmProjects/Timer/venv/timer_icon.ico')
-# Define image
+
 my_img = tk.PhotoImage(file="C:/Users/Ioana/PycharmProjects/Timer/venv/timer.png")
-# Create a label
+
 my_label = tk.Label(window, image=my_img)
 my_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-# setting the geometry of the window
-window.geometry("600x500")
+window.geometry("700x500")
 
 hour = tk.StringVar()
 hour.set("00")
@@ -30,40 +30,47 @@ second.set("00")
 
 # Take the input from the user
 
-hourEntry = tk.Entry(window, bg="green", bd=3, width=3, font=("Arial", 18, ""),
+hourEntry = tk.Entry(window, bg="dark red", bd=3, width=3, font=("Arial", 18, ""),
                      textvariable=hour)
-hourEntry.place(x=120, y=20)
+hourEntry.place(x=100, y=20)
 
-minuteEntry = tk.Entry(window, bg="blue", bd=3, width=3, font=("Arial", 18, ""),
+minuteEntry = tk.Entry(window, bg="orange", bd=3, width=3, font=("Arial", 18, ""),
                        textvariable=minute)
-minuteEntry.place(x=170, y=20)
+minuteEntry.place(x=150, y=20)
 
 secondEntry = tk.Entry(window, bg="yellow", bd=3, width=3, font=("Arial", 18, ""),
                        textvariable=second)
-secondEntry.place(x=220, y=20)
+secondEntry.place(x=200, y=20)
 
 running = False
 reset = False
 stop = False
+pressed = True
+
+
+def submit():
+    global running
+    if not running:
+        thread = threading.Thread(target=thread_function)
+        thread.start()
+        running = True
 
 
 def submit_reset():
-    print("buzz")
+    # print("buzz")
     global reset
     reset = True
 
 
-pressed = True
-
 def submit_stop():
-    print("de cee")
+    # print("de cee")
     global stop
     stop = not stop
     global pressed
     if pressed:
         btn_stop.configure(bg="yellow")
     else:
-        btn_stop.configure(bg="blue")
+        btn_stop.configure(bg="light blue")
     pressed = not pressed
 
 
@@ -94,7 +101,7 @@ def thread_function():
         else:
             running = False
 
-        print("continuarea")
+        # print("continuarea")
         # divmod(firstvalue = temp//60, secondvalue = temp%60)
         mins, secs = divmod(temp, 60)
 
@@ -120,37 +127,30 @@ def thread_function():
 
         # when temp value = 0; then a messagebox pop's up
         # with a message:"Time's up"
-        if (temp == 0):
+        if temp == 0:
+            playsound('C:/Users/Ioana/PycharmProjects/Timer/beep.mp3')
             # messagebox.showinfo("Time Countdown", "Time's up ")
             toast = ToastNotifier()
             toast.show_toast("Time Countdown", "Time is up", duration=10)
-            playsound("C:/Users/Ioana/PycharmProjects/Timer/venv/beep.mp3")
 
         # after every one sec the value of temp will be decremented
         # by one
         temp -= 1
 
 
-def submit():
-    global running
-    if not running:
-        thread = threading.Thread(target=thread_function)
-        thread.start()
-        running = True
-
-
 # button widget
-btn_start = tk.Button(window, text='Start', bd='5', bg="blue",
+btn_start = tk.Button(window, text='Start', bd='5', bg="light blue",
                       command=submit
                       )
-btn_start.place(x=120, y=120)
-btn_reset = tk.Button(window, text='Reset', bd='5', bg="blue",
+btn_start.place(x=100, y=120)
+btn_reset = tk.Button(window, text='Reset', bd='5', bg="light blue",
                       command=submit_reset
                       )
-btn_reset.place(x=170, y=120)
-btn_stop = tk.Button(window, text='Stop', bd='5', bg="blue",
+btn_reset.place(x=150, y=120)
+btn_stop = tk.Button(window, text='Stop', bd='5', bg="light blue",
                      command=submit_stop
                      )
-btn_stop.place(x=223, y=120)
+btn_stop.place(x=203, y=120)
 
 window.mainloop()
+
